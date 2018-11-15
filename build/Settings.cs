@@ -30,6 +30,8 @@ namespace Build
 
         public static readonly string TestProjectFile = Path.Combine(TestProjectPath, "Azure.Functions.Cli.Tests.csproj");
 
+        public static readonly string ConstantsFile = Path.Combine(SrcProjectPath, "Common", "Constants.cs");
+
         public static readonly string[] TargetRuntimes = new[] { "win-x86", "win-x64", "linux-x64", "osx-x64", "no-runtime" };
 
         public const string DistLibVersion = "distlib-15dba58a827f56195b0fa0afe80a8925a92e8bf5";
@@ -46,9 +48,13 @@ namespace Build
 
         public static readonly string ProjectTemplates = $"https://www.myget.org/F/azure-appservice/api/v2/package/Microsoft.AzureFunctions.ProjectTemplates/{ProjectTemplatesVersion}";
 
+        public static readonly string TelemetryKeyToReplace = "00000000-0000-0000-0000-000000000000";
+
         public static string BuildNumber => config(null, "Build.BuildId") ?? config("9999", "APPVEYOR_BUILD_NUMBER");
 
         public static string CommitId => config(null, "Build.SourceVersion") ?? config("N /A", "APPVEYOR_REPO_COMMIT");
+
+        public static string TelemetryInstrumentationKey => config(null, "TELEMETRY_INSTRUMENTATION_KEY");
 
         public static string BuildArtifactsStorage => config(null);
     }
