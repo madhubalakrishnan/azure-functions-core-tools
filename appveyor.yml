@@ -11,3 +11,6 @@ artifacts:
   name: Release
 - path: artifacts\Azure.Functions.*.sha2
   name: Release
+  
+init:
+- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
