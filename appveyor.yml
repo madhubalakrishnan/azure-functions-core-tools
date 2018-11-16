@@ -1,4 +1,4 @@
-version: "{build}"
+version: "87"
 image: Visual Studio 2017
 
 clone_folder: c:\azure-functions-cli
